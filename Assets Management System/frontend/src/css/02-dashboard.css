@@ -1,0 +1,223 @@
+/* ============================================================
+   02-dashboard.css
+   Dashboard statistics, panels, quick actions and loading styles.
+   ============================================================ */
+
+/* STAT CARDS */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: white;
+
+    /* More visible border */
+    border: 1px solid #cfd6e0;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    /* Subtle default shadow */
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+
+    /* Smooth hover animation */
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.stat-card:hover {
+    /* Slight lift */
+    transform: translateY(-3px);
+
+    /* Stronger border */
+    border-color: #aeb8c7;
+
+    /* More highlighted shadow */
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+}
+
+.stat-card-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-icon {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 8px;
+
+    background: #f3f4f6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #374151;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.stat-card:hover .stat-icon {
+    background: #e9edf2;
+    transform: scale(1.05);
+}
+
+.stat-card p {
+    margin-top: 16px;
+
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+.stat-card h2 {
+    margin-top: 5px;
+
+    font-size: 26px;
+}
+
+
+/* PANELS */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.3fr 1fr;
+
+    gap: 20px;
+}
+
+.dashboard-panel {
+    background: white;
+
+    /* More visible border */
+    border: 1px solid #cfd6e0;
+
+    border-radius: 10px;
+
+    padding: 22px;
+
+    /* Subtle shadow */
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+
+    /* Smooth hover */
+    transition:
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.dashboard-panel:hover {
+    border-color: #b8c2d0;
+
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.09);
+}
+
+.panel-header {
+    margin-bottom: 20px;
+}
+
+.panel-header h2 {
+    font-size: 16px;
+}
+
+.panel-header p {
+    color: #9ca3af;
+
+    margin-top: 4px;
+
+    font-size: 12px;
+}
+
+.status-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.status-row {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 13px;
+}
+
+.status-row:last-child {
+    border-bottom: none;
+}
+
+.status-row span {
+    color: #6b7280;
+}
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quick-actions button {
+    border: 1px solid #cfd6e0;
+
+    background: white;
+
+    padding: 13px;
+
+    border-radius: 7px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    text-align: left;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.quick-actions button:hover {
+    background: #f8fafc;
+
+    border-color: #aeb8c7;
+
+    transform: translateX(3px);
+
+    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.07);
+}
+
+
+/* LOADING */
+
+.dashboard-loading {
+    padding: 50px;
+
+    text-align: center;
+
+    color: #6b7280;
+}

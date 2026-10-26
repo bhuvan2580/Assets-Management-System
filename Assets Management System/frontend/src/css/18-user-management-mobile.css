@@ -1,0 +1,540 @@
+/* ============================================================
+   18-user-management-mobile.css
+   User-management mobile table cards and card separation/dark mode.
+   ============================================================ */
+
+/* ============================================================
+   USER MANAGEMENT - MOBILE TABLE CARDS
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    /* Hide normal table header */
+    .users-table thead {
+        display: none;
+    }
+
+    /* Remove table layout */
+    .users-table,
+    .users-table tbody,
+    .users-table tr,
+    .users-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .users-table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .users-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    /* ========================================================
+       USER CARD
+       ======================================================== */
+
+    .users-table tbody tr {
+        position: relative;
+
+        margin: 0;
+
+        padding: 8px 16px;
+
+        border: 1px solid
+            var(--border-color, #e2e8f0);
+
+        border-radius: 16px;
+
+        background: var(--card-bg, #ffffff);
+
+        box-shadow:
+            0 2px 8px rgba(15, 23, 42, 0.04);
+
+        overflow: hidden;
+    }
+
+    /* ========================================================
+       EACH ROW / FIELD
+       ======================================================== */
+
+    .users-table tbody td {
+        display: grid;
+        grid-template-columns: 105px minmax(0, 1fr);
+
+        align-items: center;
+
+        min-height: 58px;
+
+        padding: 11px 0;
+
+        border: none;
+        border-bottom: 1px solid
+            var(--border-color, #e2e8f0);
+
+        font-size: 14px;
+
+        color: var(--text-primary, #0f172a);
+    }
+
+    .users-table tbody td:last-child {
+        border-bottom: none;
+    }
+
+    /* Labels */
+
+    .users-table tbody td::before {
+        display: block;
+
+        font-size: 12px;
+        line-height: 1.3;
+
+        font-weight: 700;
+
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+
+        color: var(--text-secondary, #64748b);
+    }
+
+    /* ========================================================
+       COLUMN LABELS
+       ======================================================== */
+
+    .users-table tbody td:nth-child(1)::before {
+        content: "ID";
+    }
+
+    .users-table tbody td:nth-child(2)::before {
+        content: "User";
+    }
+
+    .users-table tbody td:nth-child(3)::before {
+        content: "Email";
+    }
+
+    .users-table tbody td:nth-child(4)::before {
+        content: "Role";
+    }
+
+    .users-table tbody td:nth-child(5)::before {
+        content: "Status";
+    }
+
+    .users-table tbody td:nth-child(6)::before {
+        content: "Password";
+    }
+
+    .users-table tbody td:nth-child(7)::before {
+        content: "Created";
+    }
+
+    .users-table tbody td:nth-child(8)::before {
+        content: "Actions";
+    }
+
+    /* ========================================================
+       ID
+       ======================================================== */
+
+    .users-table tbody td:nth-child(1) {
+        font-weight: 600;
+    }
+
+    /* ========================================================
+       USER
+       ======================================================== */
+
+    .users-table tbody td:nth-child(2) {
+        min-width: 0;
+    }
+
+    .user-name-cell {
+        display: flex;
+        align-items: center;
+
+        min-width: 0;
+
+        gap: 10px;
+    }
+
+    .user-name-cell > div:last-child {
+        min-width: 0;
+    }
+
+    .user-name-cell strong {
+        display: block;
+
+        overflow: hidden;
+
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: 600;
+
+        color: var(--text-primary, #0f172a);
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .user-avatar {
+        flex: 0 0 38px;
+
+        width: 38px;
+        height: 38px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 10px;
+
+        font-size: 14px;
+        font-weight: 700;
+
+        background: var(--hover-bg, #f1f5f9);
+        color: var(--text-secondary, #475569);
+    }
+
+    /* ========================================================
+       EMAIL
+       ======================================================== */
+
+    .email-cell {
+        display: flex;
+        align-items: center;
+
+        min-width: 0;
+
+        gap: 7px;
+
+        font-size: 13px;
+    }
+
+    .email-cell svg {
+        flex: 0 0 auto;
+    }
+
+    .email-cell {
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* ========================================================
+       ROLE / STATUS / PASSWORD
+       ======================================================== */
+
+    .users-table tbody td:nth-child(4),
+    .users-table tbody td:nth-child(5),
+    .users-table tbody td:nth-child(6) {
+        min-height: 54px;
+    }
+
+    .role-badge,
+    .status-badge,
+    .password-status {
+        width: fit-content;
+        max-width: 100%;
+    }
+
+    /* ========================================================
+       CREATED
+       ======================================================== */
+
+    .users-table tbody td:nth-child(7) {
+        color: var(--text-secondary, #64748b);
+        font-size: 13px;
+    }
+
+    /* ========================================================
+       ACTIONS
+       ======================================================== */
+
+    .users-table tbody td:nth-child(8) {
+        display: grid;
+
+        grid-template-columns: 105px minmax(0, 1fr);
+
+        align-items: center;
+
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    .user-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        flex-wrap: wrap;
+
+        gap: 8px;
+
+        min-width: 0;
+    }
+
+    .user-action-button {
+        width: 38px;
+        height: 38px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        flex: 0 0 auto;
+    }
+
+    .protected-user {
+        display: inline-flex;
+        align-items: center;
+
+        min-height: 34px;
+
+        padding: 0 10px;
+
+        border-radius: 8px;
+
+        font-size: 12px;
+        font-weight: 600;
+
+        background: var(--hover-bg, #f1f5f9);
+        color: var(--text-secondary, #64748b);
+    }
+
+    /* ========================================================
+       TABLE CONTAINER
+       ======================================================== */
+
+    .users-table-container {
+        width: 100%;
+
+        overflow: visible;
+
+        padding: 0;
+    }
+
+    /* ========================================================
+       LOADING / EMPTY STATE
+       ======================================================== */
+
+    .users-table tbody tr:has(.users-empty) {
+        display: block;
+
+        padding: 0;
+
+        border: none;
+        box-shadow: none;
+
+        background: transparent;
+    }
+
+    .users-table tbody td.users-empty {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-height: 180px;
+
+        padding: 30px;
+
+        border: 1px solid
+            var(--border-color, #e2e8f0);
+
+        border-radius: 14px;
+
+        text-align: center;
+    }
+
+    .users-table tbody td.users-empty::before {
+        display: none;
+    }
+}
+
+
+/* ============================================================
+   SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+    .users-table tbody tr {
+        padding: 6px 14px;
+        border-radius: 14px;
+    }
+
+    .users-table tbody td {
+        grid-template-columns: 92px minmax(0, 1fr);
+
+        min-height: 54px;
+
+        padding: 10px 0;
+    }
+
+    .users-table tbody td::before {
+        font-size: 11px;
+    }
+
+    .users-table tbody td:nth-child(8) {
+        grid-template-columns: 92px minmax(0, 1fr);
+    }
+
+    .user-avatar {
+        width: 36px;
+        height: 36px;
+
+        flex-basis: 36px;
+    }
+
+    .email-cell {
+        font-size: 12px;
+    }
+
+    .user-action-button {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    .dark .users-table tbody tr,
+    [data-theme="dark"] .users-table tbody tr {
+        border-color: #334155;
+        background: #111827;
+        box-shadow: none;
+    }
+
+    .dark .users-table tbody td,
+    [data-theme="dark"] .users-table tbody td {
+        border-bottom-color: #334155;
+        color: #f1f5f9;
+    }
+
+    .dark .users-table tbody td::before,
+    [data-theme="dark"] .users-table tbody td::before {
+        color: #94a3b8;
+    }
+
+    .dark .user-name-cell strong,
+    [data-theme="dark"] .user-name-cell strong {
+        color: #f1f5f9;
+    }
+
+    .dark .user-avatar,
+    [data-theme="dark"] .user-avatar {
+        background: #1f2937;
+        color: #cbd5e1;
+    }
+
+    .dark .protected-user,
+    [data-theme="dark"] .protected-user {
+        background: #1f2937;
+        color: #94a3b8;
+    }
+
+    .dark .users-table tbody td.users-empty,
+    [data-theme="dark"] .users-table tbody td.users-empty {
+        border-color: #334155;
+    }
+}
+
+/* ============================================================
+   USER MANAGEMENT - CLEAR MOBILE CARD SEPARATION
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    .users-table tbody {
+        gap: 20px !important;
+        padding: 2px 0 4px;
+    }
+
+    .users-table tbody tr {
+        position: relative;
+
+        margin: 0 !important;
+
+        border: 1px solid #d8e0ea !important;
+        border-radius: 16px !important;
+
+        background: #ffffff !important;
+
+        box-shadow:
+            0 3px 10px rgba(15, 23, 42, 0.07) !important;
+    }
+
+    /* Give the card a stronger visual edge */
+    .users-table tbody tr::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        top: 0;
+        bottom: 0;
+
+        width: 3px;
+
+        border-radius: 16px 0 0 16px;
+
+        background: var(--primary-color, #2563eb);
+
+        opacity: 0.85;
+    }
+
+    /* Keep the card contents above the accent */
+    .users-table tbody td {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* More breathing room between cards */
+    .users-table tbody tr + tr {
+        margin-top: 0 !important;
+    }
+
+    /* Slightly stronger internal separators */
+    .users-table tbody td {
+        border-bottom-color: #e5eaf0 !important;
+    }
+
+    /* Last row of card */
+    .users-table tbody td:last-child {
+        border-bottom: none !important;
+    }
+}
+
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    .dark .users-table tbody tr,
+    [data-theme="dark"] .users-table tbody tr {
+        border-color: #3b4a5f !important;
+        background: #111827 !important;
+
+        box-shadow:
+            0 3px 12px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    .dark .users-table tbody td,
+    [data-theme="dark"] .users-table tbody td {
+        border-bottom-color: #2d3a4d !important;
+    }
+}

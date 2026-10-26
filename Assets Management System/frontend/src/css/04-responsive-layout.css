@@ -1,0 +1,725 @@
+/* ============================================================
+   04-responsive-layout.css
+   Global responsive layout, mobile navigation behavior, touch styles, scrollbars and error modal.
+   ============================================================ */
+
+/* ============================================================
+
+/* ============================================================
+   GLOBAL LAYOUT
+   ============================================================ */
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    min-width: 320px;
+}
+
+.app-layout {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.navbar-welcome {
+    min-width: 0;
+}
+
+.navbar-welcome h3 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.navbar-welcome p {
+    margin: 5px 0 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.navbar-profile-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.user-profile {
+    border: 0;
+    background: transparent;
+    padding: 6px 0;
+    cursor: pointer;
+    color: #0f172a;
+}
+
+.user-profile-info {
+    min-width: 0;
+    text-align: left;
+}
+
+.profile-chevron {
+    color: #64748b;
+    transition: transform 0.2s ease;
+}
+
+.profile-chevron.rotate {
+    transform: rotate(180deg);
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 180px;
+    padding: 6px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+    z-index: 1200;
+}
+
+.profile-dropdown-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #334155;
+    font-size: 14px;
+    text-align: left;
+}
+
+.profile-dropdown-item:hover {
+    background: #f1f5f9;
+}
+
+.mobile-menu-button {
+    display: none;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: #334155;
+}
+
+.mobile-menu-button:hover {
+    background: #f1f5f9;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+/* Keep all page containers inside the viewport. */
+.dashboard,
+.assets-page,
+.assignments-page,
+.vendors-container {
+    width: 100%;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================================
+   LARGE TABLETS / SMALL LAPTOPS
+   ============================================================ */
+
+@media (max-width: 1200px) {
+    .navbar {
+        padding: 0 24px;
+    }
+
+    .content {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vendor-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .asset-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .asset-search {
+        flex: 1;
+        min-width: 250px;
+        width: auto;
+    }
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 76px;
+        padding: 18px 10px;
+    }
+
+    .main-area {
+        margin-left: 76px;
+        width: calc(100% - 76px);
+    }
+
+    .navbar {
+        left: 76px;
+        width: calc(100% - 76px);
+        height: 72px;
+        padding: 0 20px;
+    }
+
+    .content {
+        padding: 96px 22px 22px;
+    }
+
+    .brand {
+        justify-content: center;
+        padding: 0 0 25px;
+    }
+
+    .brand > div:last-child {
+        display: none;
+    }
+
+    .nav-heading,
+    .nav-item span {
+        display: none;
+    }
+
+    .nav-item {
+        justify-content: center;
+        padding: 12px 8px;
+    }
+
+    .sidebar-bottom .nav-item {
+        justify-content: center;
+    }
+
+    .user-profile-info,
+    .profile-chevron {
+        display: none;
+    }
+
+    .assets-table-container,
+    .employees-table-container,
+    .assignments-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .assets-table {
+        min-width: 850px;
+    }
+
+    .employees-table-container table {
+        min-width: 800px;
+    }
+
+    .assignments-table-container table {
+        min-width: 850px;
+    }
+}
+
+
+/* ============================================================
+   MOBILE
+   Sidebar becomes an off-canvas menu inside the navbar system.
+   ============================================================ */
+
+@media (max-width: 700px) {
+    .sidebar {
+        width: min(280px, 86vw);
+        padding: 20px 16px;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        box-shadow: 12px 0 30px rgba(15, 23, 42, 0.16);
+        z-index: 1100;
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    /* Restore the full navigation inside the opened mobile drawer. */
+    .brand {
+        justify-content: flex-start;
+        padding: 0 10px 28px;
+    }
+
+    .brand > div:last-child {
+        display: block;
+    }
+
+    .nav-heading {
+        display: block;
+    }
+
+    .nav-item {
+        justify-content: flex-start;
+        padding: 12px;
+    }
+
+    .nav-item span {
+        display: inline;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        display: block;
+        background: rgba(15, 23, 42, 0.45);
+        z-index: 1050;
+    }
+
+    .main-area {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .navbar {
+        left: 0;
+        width: 100%;
+        height: 72px;
+        padding: 0 14px;
+        gap: 10px;
+    }
+
+    .mobile-menu-button {
+        display: inline-flex;
+    }
+
+    .navbar-welcome {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .navbar-welcome h3 {
+        font-size: 18px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .navbar-welcome p {
+        display: none;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .content {
+        padding: 92px 16px 20px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .page-header h1 {
+        font-size: 22px;
+    }
+
+    .page-header p {
+        font-size: 13px;
+    }
+
+    .add-button {
+        width: 100%;
+        min-height: 42px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .dashboard-panel {
+        padding: 16px;
+    }
+
+    .dashboard-grid {
+        gap: 14px;
+    }
+
+    .asset-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        padding: 12px;
+    }
+
+    .asset-search {
+        width: 100%;
+        min-width: 0;
+        height: 40px;
+    }
+
+    .status-filters {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 3px;
+        scrollbar-width: thin;
+    }
+
+    .filter {
+        flex-shrink: 0;
+    }
+
+    .assets-table-container,
+    .employees-table-container,
+    .assignments-table-container {
+        border-radius: 9px;
+    }
+
+    .assets-table,
+    .employees-table-container table,
+    .assignments-table-container table {
+        min-width: 760px;
+    }
+
+    .vendor-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .vendor-card {
+        padding: 16px;
+    }
+
+    .modal-overlay,
+    .vendor-modal-overlay,
+    .assignments-page .modal-overlay {
+        padding: 10px;
+    }
+
+    .modal,
+    .vendor-modal,
+    .assignments-page .asset-modal {
+        width: 100%;
+        max-width: 100%;
+        max-height: calc(100vh - 20px);
+        border-radius: 12px;
+    }
+
+    .modal-header {
+        padding: 18px;
+    }
+
+    .modal-header h2 {
+        font-size: 17px;
+    }
+
+    .asset-form {
+        padding: 18px;
+    }
+
+    .form-grid,
+    .asset-form > .form-grid,
+    .assignments-page .form-grid,
+    .vendor-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .item-specification,
+    .asset-form > .form-grid > .item-specification {
+        grid-column: 1;
+    }
+
+    .specification-grid,
+    .asset-form .specification-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-footer,
+    .vendor-modal-footer,
+    .assignments-page .modal-footer {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .modal-footer button,
+    .vendor-modal-footer button,
+    .assignments-page .modal-footer button {
+        width: 100%;
+        min-height: 42px;
+    }
+
+    .delete-modal {
+        width: 100%;
+        max-width: 400px;
+        padding: 22px;
+    }
+
+    .action-menu {
+        position: fixed;
+        right: 12px;
+        min-width: 150px;
+        z-index: 1200;
+    }
+
+    .asset-assignment-card {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 16px !important;
+        padding: 16px !important;
+    }
+
+    .assignment-person-info {
+        width: 100%;
+    }
+
+    .asset-details-modal,
+    .employee-details-modal {
+        width: 95vw;
+    }
+
+    .asset-detail-section {
+        padding: 20px;
+    }
+
+    .asset-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .empty-state,
+    .empty-vendors {
+        min-height: 250px;
+        padding: 30px 15px;
+    }
+}
+
+/* ============================================================
+   VERY SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 400px) {
+    .navbar {
+        padding: 0 8px;
+    }
+
+    .content {
+        padding: 88px 12px 16px;
+    }
+
+    .navbar-welcome h3 {
+        font-size: 16px;
+    }
+
+    .mobile-menu-button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .modal-overlay,
+    .vendor-modal-overlay,
+    .assignments-page .modal-overlay {
+        padding: 6px;
+    }
+
+    .modal,
+    .vendor-modal,
+    .assignments-page .asset-modal {
+        border-radius: 10px;
+    }
+
+    .modal-header {
+        padding: 15px;
+    }
+
+    .asset-form {
+        padding: 15px;
+    }
+
+    .delete-modal {
+        padding: 18px;
+    }
+}
+
+/* ============================================================
+   TOUCH DEVICES
+   ============================================================ */
+
+@media (hover: none) and (pointer: coarse) {
+    button,
+    .nav-item,
+    .filter,
+    .table-action {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-item {
+        min-height: 42px;
+    }
+
+    .filter {
+        min-height: 40px;
+    }
+
+    .table-action {
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .close-button,
+    .vendor-modal-close,
+    .assignments-page .modal-close {
+        min-width: 42px;
+        min-height: 42px;
+    }
+}
+
+/* ============================================================
+   MOBILE SCROLLBARS
+   ============================================================ */
+
+.status-filters::-webkit-scrollbar,
+.assets-table-container::-webkit-scrollbar,
+.employees-table-container::-webkit-scrollbar,
+.assignments-table-container::-webkit-scrollbar,
+.modal::-webkit-scrollbar,
+.vendor-modal::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.status-filters::-webkit-scrollbar-track,
+.assets-table-container::-webkit-scrollbar-track,
+.employees-table-container::-webkit-scrollbar-track,
+.assignments-table-container::-webkit-scrollbar-track,
+.modal::-webkit-scrollbar-track,
+.vendor-modal::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.status-filters::-webkit-scrollbar-thumb,
+.assets-table-container::-webkit-scrollbar-thumb,
+.employees-table-container::-webkit-scrollbar-thumb,
+.assignments-table-container::-webkit-scrollbar-thumb,
+.modal::-webkit-scrollbar-thumb,
+.vendor-modal::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+/* ============================================================
+   ERROR MODAL
+   ============================================================ */
+
+.error-modal {
+    width: 420px;
+    max-width: calc(100vw - 40px);
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    animation: errorModalIn 0.2s ease-out;
+}
+
+.error-modal-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fee2e2;
+    color: #dc2626;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.error-modal h2 {
+    margin: 0 0 12px;
+    color: #111827;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.error-modal p {
+    max-width: 340px;
+    margin: 0 auto 26px;
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.error-modal-button {
+    min-width: 100px;
+    padding: 11px 24px;
+    border: 0;
+    border-radius: 9px;
+    background: #111827;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.error-modal-button:hover {
+    background: #1f2937;
+}
+
+.error-modal-button:active {
+    transform: scale(0.97);
+}
+
+@keyframes errorModalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
