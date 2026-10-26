@@ -105,19 +105,31 @@ function AssetHistory() {
     };
 
 
-    const formatDate = (date) => {
-
-        if (!date) {
+    const formatDate = (value) => {
+        if (!value) {
             return "—";
         }
 
-        return new Date(
-            date
-        ).toLocaleDateString(
-            "en-GB"
-        );
-    };
+        // Handle dates already formatted as DD/MM/YYYY.
+        if (
+            typeof value === "string" &&
+            /^\d{2}\/\d{2}\/\d{4}$/.test(value)
+        ) {
+            return value;
+        }
 
+        const date = new Date(value);
+
+        if (Number.isNaN(date.getTime())) {
+            return "—";
+        }
+
+        return date.toLocaleDateString("en-GB", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+        });
+    };
 
     const confirmDelete = async () => {
 
