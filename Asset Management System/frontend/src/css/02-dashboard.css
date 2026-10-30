@@ -1,0 +1,582 @@
+/* ============================================================
+   02-dashboard.css
+   Modern IT Asset Management Dashboard
+   ============================================================ */
+
+/* ============================================================
+   STATISTICS GRID
+   ============================================================ */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 26px;
+    align-items: stretch;
+}
+
+/* ============================================================
+   STAT CARDS
+   ============================================================ */
+
+.stat-card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+
+    min-width: 0;
+    min-height: 120px;
+    padding: 18px 20px;
+
+    cursor: pointer;
+    user-select: none;
+
+    background: #ffffff;
+    border: 1px solid #dce4ef;
+    border-radius: 16px;
+
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.stat-card:focus-visible {
+    outline: 3px solid rgba(59, 130, 246, 0.45);
+    outline-offset: 3px;
+}
+
+.stat-card:active {
+    transform: scale(0.99);
+}
+
+/* Accent line */
+
+.stat-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 3px;
+    border-radius: 16px 16px 0 0;
+
+    background: var(--card-accent, #64748b);
+    opacity: 0.85;
+
+    transition: opacity 0.2s ease;
+}
+
+/* Hover */
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    border-color: #c5d4e8;
+
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.06);
+}
+
+.stat-card:hover::before {
+    opacity: 1;
+}
+
+/* Accent colours */
+
+.stat-card:nth-child(1) {
+    --card-accent: #6366f1;
+    --icon-bg: #eef2ff;
+    --icon-color: #4f46e5;
+}
+
+.stat-card:nth-child(2) {
+    --card-accent: #10b981;
+    --icon-bg: #ecfdf5;
+    --icon-color: #059669;
+}
+
+.stat-card:nth-child(3) {
+    --card-accent: #3b82f6;
+    --icon-bg: #eff6ff;
+    --icon-color: #2563eb;
+}
+
+.stat-card:nth-child(4) {
+    --card-accent: #f59e0b;
+    --icon-bg: #fffbeb;
+    --icon-color: #d97706;
+}
+
+.stat-card:nth-child(5) {
+    --card-accent: #ef4444;
+    --icon-bg: #fef2f2;
+    --icon-color: #dc2626;
+}
+
+.stat-card:nth-child(6) {
+    --card-accent: #8b5cf6;
+    --icon-bg: #f5f3ff;
+    --icon-color: #7c3aed;
+}
+
+.stat-card:nth-child(7) {
+    --card-accent: #0ea5e9;
+    --icon-bg: #f0f9ff;
+    --icon-color: #0284c7;
+}
+
+.stat-card:nth-child(8) {
+    --card-accent: #f97316;
+    --icon-bg: #fff7ed;
+    --icon-color: #ea580c;
+}
+
+.stat-card:nth-child(9) {
+    --card-accent: #06b6d4;
+    --icon-bg: #ecfeff;
+    --icon-color: #0891b2;
+}
+
+.stat-card:nth-child(10) {
+    --card-accent: #14b8a6;
+    --icon-bg: #f0fdfa;
+    --icon-color: #0d9488;
+}
+
+.stat-card:nth-child(11) {
+    --card-accent: #a855f7;
+    --icon-bg: #faf5ff;
+    --icon-color: #9333ea;
+}
+
+/* ============================================================
+   ICONS
+   ============================================================ */
+
+.stat-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 48px;
+    width: 48px;
+    min-width: 48px;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background: var(--icon-bg, #eff6ff);
+    color: var(--icon-color, #2563eb);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: transform 0.2s ease;
+}
+
+.stat-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+}
+
+.stat-card:hover .stat-icon {
+    transform: scale(1.05);
+}
+
+/* ============================================================
+   CARD LABELS AND VALUES
+   ============================================================ */
+
+/*
+   The card's icon and text are separate children.
+   The text container takes the remaining space.
+*/
+
+.stat-card > div:last-child {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 12px;
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+}
+
+/* Labels */
+
+.stat-card p {
+    min-width: 0;
+    margin: 0;
+
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+}
+
+/* Values */
+
+.stat-card h2 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+
+/* Repair amount card: preserve room for the currency value */
+.stat-card:nth-child(8) > div:last-child {
+    column-gap: 8px;
+}
+
+.stat-card:nth-child(8) h2 {
+    font-size: clamp(17px, 1.55vw, 25px);
+    letter-spacing: -0.6px;
+}
+
+/* ============================================================
+   DASHBOARD PANELS
+   ============================================================ */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+
+    gap: 22px;
+    align-items: stretch;
+}
+
+.dashboard-panel {
+    min-width: 0;
+
+    background: #ffffff;
+    border: 1px solid #e1e7ef;
+    border-radius: 16px;
+
+    padding: 26px;
+
+    box-shadow:
+        0 3px 8px rgba(15, 23, 42, 0.025),
+        0 8px 22px rgba(15, 23, 42, 0.035);
+
+    transition:
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+}
+
+.dashboard-panel:hover {
+    border-color: #cbd5e1;
+
+    box-shadow:
+        0 8px 24px rgba(15, 23, 42, 0.055);
+}
+
+/* ============================================================
+   PANEL HEADERS
+   ============================================================ */
+
+.panel-header {
+    margin-bottom: 24px;
+}
+
+.panel-header h2 {
+    color: #111827;
+
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.panel-header p {
+    color: #94a3b8;
+
+    margin-top: 6px;
+    margin-bottom: 0;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ============================================================
+   ASSET STATUS LIST
+   ============================================================ */
+
+.status-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid #edf0f5;
+
+    font-size: 14px;
+
+    transition: padding 0.2s ease;
+}
+
+.status-row:hover {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.status-row:last-child {
+    border-bottom: none;
+}
+
+.status-row span {
+    color: #64748b;
+}
+
+.status-row strong {
+    color: #111827;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ============================================================
+   QUICK ACTIONS
+   ============================================================ */
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.quick-actions button {
+    width: 100%;
+    min-height: 58px;
+
+    border: 1px solid #e1e7ef;
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    padding: 15px 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #334155;
+
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.quick-actions button svg {
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+
+    color: #475569;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.quick-actions button:hover {
+    background: #f8faff;
+    border-color: #c7d2fe;
+
+    transform: translateX(4px);
+
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.07);
+}
+
+.quick-actions button:hover svg {
+    color: #4f46e5;
+    transform: scale(1.06);
+}
+
+.quick-actions button:focus-visible {
+    outline: 3px solid rgba(99, 102, 241, 0.25);
+    outline-offset: 3px;
+}
+
+/* ============================================================
+   LOADING
+   ============================================================ */
+
+.dashboard-loading {
+    padding: 50px;
+    text-align: center;
+    color: #64748b;
+}
+
+/* ============================================================
+   RESPONSIVE LAYOUT
+   ============================================================ */
+
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .stat-card {
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .stat-card-top {
+        flex-basis: 42px;
+        width: 42px;
+        min-width: 42px;
+    }
+
+    .stat-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 11px;
+    }
+
+    .stat-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .stat-card h2 {
+        font-size: 23px;
+    }
+
+    .stat-card:nth-child(8) h2 {
+        font-size: clamp(16px, 2vw, 22px);
+    }
+}
+
+@media (max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-panel {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .stat-card {
+        gap: 10px;
+        min-height: 100px;
+        padding: 14px 12px;
+        border-radius: 12px;
+    }
+
+    .stat-card-top {
+        flex-basis: 34px;
+        width: 34px;
+        min-width: 34px;
+    }
+
+    .stat-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+    }
+
+    .stat-icon svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .stat-card p {
+        margin-bottom: 5px;
+        font-size: 12px;
+    }
+
+    .stat-card > div:last-child {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 5px;
+    }
+
+    .stat-card h2 {
+        font-size: 21px;
+        letter-spacing: -0.3px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .stat-card:nth-child(8) h2 {
+        font-size: 18px;
+    }
+
+    .dashboard-grid {
+        gap: 16px;
+    }
+
+    .dashboard-panel {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .panel-header {
+        margin-bottom: 18px;
+    }
+
+    .quick-actions button {
+        min-height: 52px;
+        padding: 12px;
+    }
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .stat-card,
+    .stat-icon,
+    .dashboard-panel,
+    .status-row,
+    .quick-actions button,
+    .quick-actions button svg {
+        transition: none;
+    }
+
+    .stat-card:hover,
+    .quick-actions button:hover {
+        transform: none;
+    }
+}

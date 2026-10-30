@@ -1,0 +1,637 @@
+
+/* =========================================
+   AUDIT LOG PAGE
+========================================= */
+
+.audit-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    color: #111827;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.audit-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.audit-heading-icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    background: #eaf0ff;
+    color: #245fe8;
+    border-radius: 15px;
+    flex-shrink: 0;
+}
+
+.audit-heading h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 0 0 7px;
+    font-weight: 750;
+}
+
+.audit-heading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 15px;
+}
+
+.audit-refresh {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #d9dee7;
+    border-radius: 10px;
+    padding: 11px 15px;
+    font-weight: 650;
+    color: #334155;
+    cursor: pointer;
+}
+
+.audit-refresh:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.audit-spin {
+    animation: audit-spin 1s linear infinite;
+}
+
+@keyframes audit-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
+.audit-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.audit-summary > div {
+    background: #fff;
+    border: 1px solid #e1e6ee;
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.audit-summary span {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.audit-summary strong {
+    font-size: 22px;
+    font-weight: 750;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* =========================================
+   SEARCH AND FILTERS
+========================================= */
+
+.audit-filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.audit-search {
+    height: 46px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 13px;
+    background: #fff;
+    border: 1px solid #d9dee7;
+    border-radius: 10px;
+    color: #64748b;
+    flex: 1;
+    min-width: 240px;
+}
+
+.audit-search input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font: inherit;
+    color: #111827;
+}
+
+.audit-filters select {
+    min-width: 150px;
+    height: 46px;
+    padding: 0 34px 0 12px;
+    border: 1px solid #d9dee7;
+    border-radius: 10px;
+    background: #fff;
+    color: #334155;
+    font: inherit;
+}
+
+/* =========================================
+   TABLE CONTAINER
+========================================= */
+
+.audit-table-card {
+    background: #fff;
+    border: 1px solid #e1e6ee;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px #0f172a08;
+}
+
+.audit-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.audit-table {
+    width: 100%;
+    min-width: 1000px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.audit-table thead {
+    background: #111827;
+    color: #fff;
+}
+
+.audit-table th {
+    padding: 16px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.audit-table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid #edf0f4;
+    vertical-align: top;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.audit-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.audit-table tbody tr:hover {
+    background: #fafbfc;
+}
+
+.audit-table td strong {
+    display: block;
+    font-size: 13px;
+}
+
+.audit-table td small {
+    display: block;
+    color: #64748b;
+    margin-top: 3px;
+    overflow-wrap: anywhere;
+}
+
+.audit-date {
+    min-width: 145px;
+    color: #475569;
+}
+
+/* =========================================
+   BADGES
+========================================= */
+
+.audit-badge {
+    display: inline-flex;
+    border-radius: 7px;
+    padding: 5px 8px;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 0.025em;
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.audit-badge-create,
+.audit-badge-return {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.audit-badge-update {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.audit-badge-delete {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.audit-badge-assign,
+.audit-badge-upload {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.audit-method {
+    display: inline-block;
+    font-weight: 750;
+    font-size: 11px;
+    background: #f1f5f9;
+    border-radius: 5px;
+    padding: 3px 6px;
+}
+
+/* =========================================
+   EMPTY STATE AND ERRORS
+========================================= */
+
+.audit-empty {
+    text-align: center !important;
+    padding: 42px !important;
+    color: #64748b;
+}
+
+.audit-error {
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.audit-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 18px;
+    border-top: 1px solid #edf0f4;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.audit-pagination > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.audit-pagination button {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #d9dee7;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #334155;
+}
+
+.audit-pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   TABLE-TO-CARD MOBILE LAYOUT
+========================================= */
+
+@media (max-width: 700px) {
+
+    .audit-page {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    /* Header */
+
+    .audit-heading {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .audit-heading-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+    }
+
+    .audit-heading h1 {
+        font-size: 24px;
+    }
+
+    .audit-heading p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .audit-refresh {
+        margin-left: 0;
+        padding: 9px 12px;
+    }
+
+    /* Summary cards */
+
+    .audit-summary {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .audit-summary > div {
+        padding: 14px 16px;
+        gap: 6px;
+    }
+
+    .audit-summary strong {
+        font-size: 19px;
+    }
+
+    /* Search and filters */
+
+    .audit-filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .audit-search {
+        width: 100%;
+        min-width: 0;
+        flex: none;
+        box-sizing: border-box;
+    }
+
+    .audit-filters select {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    /* Remove desktop table overflow */
+
+    .audit-table-card {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        overflow: visible;
+    }
+
+    .audit-table-scroll {
+        width: 100%;
+        overflow-x: visible;
+    }
+
+    .audit-table {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .audit-table thead {
+        display: none;
+    }
+
+    .audit-table tbody {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        width: 100%;
+    }
+
+    /* Each row becomes a card */
+
+    .audit-table tbody tr {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 14px;
+        background: #fff;
+        border: 1px solid #e1e6ee;
+        border-radius: 14px;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    }
+
+    .audit-table tbody tr:hover {
+        background: #fff;
+    }
+
+    .audit-table tbody tr:last-child td {
+        border-bottom: 1px solid #edf0f4;
+    }
+
+    /* Each cell becomes a labelled row */
+
+    .audit-table tbody td {
+        display: grid;
+        grid-template-columns: minmax(90px, 34%) minmax(0, 1fr);
+        align-items: start;
+        gap: 12px;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 12px 0;
+        border-bottom: 1px solid #edf0f4;
+        font-size: 13px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .audit-table tbody td:last-child {
+        border-bottom: none;
+    }
+
+    /* Default labels */
+
+    .audit-table tbody td::before {
+        content: "";
+        color: #64748b;
+        font-size: 11px;
+        font-weight: 750;
+        letter-spacing: 0.045em;
+        text-transform: uppercase;
+        line-height: 1.5;
+    }
+
+    /*
+       These labels assume this column order:
+       1. Action
+       2. Asset
+       3. User
+       4. Details
+       5. Date
+       6. Method
+    */
+
+    .audit-table tbody td:nth-child(1)::before {
+        content: "Action";
+    }
+
+    .audit-table tbody td:nth-child(2)::before {
+        content: "Asset";
+    }
+
+    .audit-table tbody td:nth-child(3)::before {
+        content: "User";
+    }
+
+    .audit-table tbody td:nth-child(4)::before {
+        content: "Details";
+    }
+
+    .audit-table tbody td:nth-child(5)::before {
+        content: "Date";
+    }
+
+    .audit-table tbody td:nth-child(6)::before {
+        content: "Method";
+    }
+
+    /* Card text */
+
+    .audit-table tbody td strong {
+        font-size: 13px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .audit-table tbody td small {
+        font-size: 12px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .audit-date {
+        min-width: 0;
+    }
+
+    .audit-badge,
+    .audit-method {
+        justify-self: start;
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    /* Empty results */
+
+    .audit-table tbody td.audit-empty {
+        display: block;
+        padding: 28px 12px !important;
+        text-align: center !important;
+        border: none;
+    }
+
+    .audit-table tbody td.audit-empty::before {
+        content: none;
+    }
+
+    /* Error message */
+
+    .audit-error {
+        padding: 12px;
+        font-size: 13px;
+        overflow-wrap: anywhere;
+    }
+
+    /* Pagination */
+
+    .audit-pagination {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 15px 4px;
+    }
+
+    .audit-pagination > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .audit-pagination button {
+        flex-shrink: 0;
+    }
+}
+
+/* =========================================
+   EXTRA SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .audit-page {
+        padding: 0 8px;
+    }
+
+    .audit-heading {
+        gap: 9px;
+    }
+
+    .audit-heading h1 {
+        font-size: 22px;
+    }
+
+    .audit-heading p {
+        font-size: 12px;
+    }
+
+    .audit-table tbody tr {
+        padding: 6px 11px;
+    }
+
+    .audit-table tbody td {
+        grid-template-columns: 82px minmax(0, 1fr);
+        gap: 8px;
+        font-size: 12px;
+    }
+
+    .audit-table tbody td::before {
+        font-size: 10px;
+    }
+
+    .audit-pagination {
+        font-size: 12px;
+    }
+}

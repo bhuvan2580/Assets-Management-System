@@ -1,0 +1,404 @@
+/* ============================================================
+   17-reject-request-modal.css
+   Reject-request modal.
+   ============================================================ */
+
+/* ============================================================
+   REJECT REQUEST MODAL
+   ============================================================ */
+
+.reject-request-modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 520px;
+    max-height: calc(100vh - 48px);
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: 16px;
+
+    background: var(--card-bg, #ffffff);
+
+    box-shadow:
+        0 24px 60px rgba(15, 23, 42, 0.20);
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.reject-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 24px 24px 20px;
+
+    border-bottom: 1px solid
+        var(--border-color, #e2e8f0);
+}
+
+.reject-modal-title {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    min-width: 0;
+}
+
+.reject-modal-icon {
+    width: 44px;
+    height: 44px;
+
+    flex: 0 0 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: rgba(239, 68, 68, 0.09);
+    color: #ef4444;
+}
+
+.reject-modal-title h2 {
+    margin: 1px 0 5px;
+
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 700;
+
+    color: var(--text-primary, #0f172a);
+}
+
+.reject-modal-title p {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: var(--text-secondary, #64748b);
+}
+
+
+/* ============================================================
+   BODY
+   ============================================================ */
+
+.reject-modal-body {
+    padding: 22px 24px;
+}
+
+
+/* ============================================================
+   REQUEST SUMMARY
+   ============================================================ */
+
+.reject-request-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+.reject-summary-item {
+    min-width: 0;
+
+    padding: 13px 14px;
+
+    border: 1px solid
+        var(--border-color, #e2e8f0);
+
+    border-radius: 10px;
+
+    background: var(--hover-bg, #f8fafc);
+}
+
+.reject-summary-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 10px;
+    line-height: 1.3;
+    font-weight: 700;
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    color: var(--text-secondary, #64748b);
+}
+
+.reject-summary-item strong {
+    display: block;
+
+    overflow: hidden;
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    color: var(--text-primary, #0f172a);
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* ============================================================
+   REASON FIELD
+   ============================================================ */
+
+.reject-form-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.reject-form-field label {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: var(--text-primary, #334155);
+}
+
+.reject-form-field label .required {
+    color: #ef4444;
+}
+
+.reject-form-field textarea {
+    width: 100%;
+    min-height: 120px;
+
+    box-sizing: border-box;
+
+    padding: 12px 13px;
+
+    resize: vertical;
+
+    border: 1px solid
+        var(--border-color, #dbe2ea);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: var(--input-bg, #ffffff);
+    color: var(--text-primary, #0f172a);
+
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.reject-form-field textarea::placeholder {
+    color: #94a3b8;
+}
+
+.reject-form-field textarea:focus {
+    border-color: #ef4444;
+
+    box-shadow:
+        0 0 0 3px rgba(239, 68, 68, 0.10);
+}
+
+.reject-form-field textarea:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.reject-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding: 17px 24px 20px;
+
+    border-top: 1px solid
+        var(--border-color, #e2e8f0);
+}
+
+.reject-confirm-button {
+    min-height: 40px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0 16px;
+
+    border: 1px solid #dc2626;
+    border-radius: 8px;
+
+    background: #dc2626;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        box-shadow 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.reject-confirm-button:hover:not(:disabled) {
+    background: #b91c1c;
+
+    box-shadow:
+        0 4px 12px rgba(220, 38, 38, 0.20);
+}
+
+.reject-confirm-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+
+.dark .reject-request-modal,
+[data-theme="dark"] .reject-request-modal {
+    border-color: #334155;
+    background: #111827;
+}
+
+.dark .reject-modal-header,
+[data-theme="dark"] .reject-modal-header {
+    border-color: #334155;
+}
+
+.dark .reject-modal-title h2,
+[data-theme="dark"] .reject-modal-title h2 {
+    color: #f1f5f9;
+}
+
+.dark .reject-modal-title p,
+[data-theme="dark"] .reject-modal-title p {
+    color: #94a3b8;
+}
+
+.dark .reject-summary-item,
+[data-theme="dark"] .reject-summary-item {
+    border-color: #334155;
+    background: #1f2937;
+}
+
+.dark .reject-summary-label,
+[data-theme="dark"] .reject-summary-label {
+    color: #94a3b8;
+}
+
+.dark .reject-summary-item strong,
+[data-theme="dark"] .reject-summary-item strong {
+    color: #f1f5f9;
+}
+
+.dark .reject-form-field label,
+[data-theme="dark"] .reject-form-field label {
+    color: #e2e8f0;
+}
+
+.dark .reject-form-field textarea,
+[data-theme="dark"] .reject-form-field textarea {
+    border-color: #475569;
+    background: #1f2937;
+    color: #f1f5f9;
+}
+
+.dark .reject-modal-footer,
+[data-theme="dark"] .reject-modal-footer {
+    border-color: #334155;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .reject-request-modal {
+        max-width: calc(100vw - 28px);
+        max-height: calc(100vh - 28px);
+
+        border-radius: 14px;
+    }
+
+    .reject-modal-header {
+        padding: 20px 18px 17px;
+    }
+
+    .reject-modal-body {
+        padding: 18px;
+    }
+
+    .reject-modal-footer {
+        padding: 14px 18px 18px;
+    }
+
+    .reject-request-summary {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+        margin-bottom: 18px;
+    }
+
+    .reject-modal-title h2 {
+        font-size: 17px;
+    }
+
+    .reject-modal-title p {
+        font-size: 12px;
+    }
+
+    .reject-modal-icon {
+        width: 40px;
+        height: 40px;
+
+        flex-basis: 40px;
+    }
+
+    .reject-modal-footer {
+        flex-direction: column-reverse;
+    }
+
+    .reject-modal-footer button {
+        width: 100%;
+    }
+}
