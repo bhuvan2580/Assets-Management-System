@@ -1,0 +1,726 @@
+
+/* =========================================
+   MAINTENANCE MANAGEMENT
+========================================= */
+
+.maintenance-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+    color: var(--text-primary, #172033);
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.maintenance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.maintenance-header h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 26px;
+    margin: 5px 0 7px;
+}
+
+.maintenance-header p {
+    margin: 0;
+    color: var(--text-secondary, #64748b);
+    font-size: 14px;
+}
+
+.maintenance-eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    color: #64748b;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.maintenance-primary,
+.maintenance-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 9px;
+    padding: 10px 14px;
+    font-weight: 650;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.maintenance-primary {
+    background: #2563eb;
+    color: #fff;
+    border: 1px solid #2563eb;
+}
+
+.maintenance-primary:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.maintenance-secondary {
+    background: var(--card-bg, #fff);
+    color: var(--text-primary, #172033);
+    border: 1px solid var(--border-color, #dbe2ea);
+}
+
+/* =========================================
+   SUMMARY STATISTICS
+========================================= */
+
+.maintenance-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.maintenance-stat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--border-color, #e2e8f0);
+    background: var(--card-bg, #fff);
+    border-radius: 12px;
+    min-width: 0;
+}
+
+.maintenance-stat > span {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.maintenance-stat small {
+    display: block;
+    color: var(--text-secondary, #64748b);
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.maintenance-stat strong {
+    display: block;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   SEARCH AND FILTERS
+========================================= */
+
+.maintenance-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.maintenance-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    max-width: 520px;
+    border: 1px solid var(--border-color, #dbe2ea);
+    background: var(--card-bg, #fff);
+    border-radius: 9px;
+    padding: 0 12px;
+    color: #64748b;
+}
+
+.maintenance-search input {
+    border: 0 !important;
+    outline: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    width: 100%;
+    min-width: 0;
+    padding: 11px 0 !important;
+    color: var(--text-primary, #172033);
+}
+
+.maintenance-toolbar select,
+.maintenance-modal select,
+.maintenance-modal input:not([type=checkbox]),
+.maintenance-modal textarea {
+    border: 1px solid var(--border-color, #dbe2ea);
+    border-radius: 8px;
+    padding: 10px 11px;
+    background: var(--card-bg, #fff);
+    color: var(--text-primary, #172033);
+    width: 100%;
+    font: inherit;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.maintenance-toolbar select {
+    width: auto;
+    min-width: 165px;
+}
+
+/* =========================================
+   MAINTENANCE TABLE
+========================================= */
+
+.maintenance-table-wrap {
+    overflow: auto;
+    background: var(--card-bg, #fff);
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: 12px;
+}
+
+.maintenance-table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 900px;
+    text-align: left;
+    font-size: 13px;
+}
+
+.maintenance-table th {
+    padding: 13px 15px;
+    background: var(--table-head-bg, #f8fafc);
+    color: var(--text-secondary, #64748b);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.45px;
+    white-space: nowrap;
+}
+
+.maintenance-table td {
+    padding: 14px 15px;
+    border-top: 1px solid var(--border-color, #edf0f5);
+    vertical-align: middle;
+}
+
+.maintenance-table td strong,
+.maintenance-table td small {
+    display: block;
+}
+
+.maintenance-table td small {
+    font-size: 11px;
+    color: var(--text-secondary, #64748b);
+    margin-top: 4px;
+    max-width: 260px;
+    overflow-wrap: anywhere;
+}
+
+.maintenance-empty {
+    text-align: center !important;
+    padding: 40px !important;
+    color: var(--text-secondary, #64748b);
+}
+
+/* =========================================
+   STATUS BADGES
+========================================= */
+
+.maintenance-status {
+    display: inline-flex;
+    padding: 5px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 750;
+    white-space: nowrap;
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.status-reported {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.status-under-inspection {
+    background: #f5f3ff;
+    color: #6d28d9;
+}
+
+.status-awaiting-parts {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.status-under-repair {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-completed {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-unrepairable {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* =========================================
+   ACTION LINKS
+========================================= */
+
+.maintenance-link {
+    border: 0;
+    background: transparent;
+    color: #2563eb;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.maintenance-link:disabled {
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   ERROR MESSAGE
+========================================= */
+
+.maintenance-error {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    padding: 11px 14px;
+    border-radius: 9px;
+    font-size: 13px;
+}
+
+.maintenance-error button {
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+.maintenance-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.maintenance-modal {
+    width: min(620px, 100%);
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+    background: var(--card-bg, #fff);
+    color: var(--text-primary, #172033);
+    border-radius: 15px;
+    padding: 22px;
+    box-shadow: 0 25px 80px #0f172a40;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.maintenance-modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 3px;
+}
+
+.maintenance-modal-head h2 {
+    margin: 0 0 5px;
+    font-size: 20px;
+}
+
+.maintenance-modal-head p {
+    margin: 0;
+    color: var(--text-secondary, #64748b);
+    font-size: 13px;
+}
+
+.maintenance-close {
+    border: 0;
+    background: transparent;
+    color: var(--text-secondary, #64748b);
+    cursor: pointer;
+}
+
+.maintenance-modal > label,
+.maintenance-form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary, #475569);
+}
+
+.maintenance-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.maintenance-modal .maintenance-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    color: var(--text-primary, #172033);
+}
+
+.maintenance-checkbox input {
+    width: 16px;
+    height: 16px;
+}
+
+.maintenance-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-top: 5px;
+}
+
+/* =========================================
+   TABLE-TO-CARD LAYOUT: MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    /* Header */
+
+    .maintenance-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .maintenance-header h1 {
+        font-size: 22px;
+    }
+
+    .maintenance-header .maintenance-primary {
+        width: 100%;
+    }
+
+    /* Statistics */
+
+    .maintenance-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .maintenance-stat {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .maintenance-stat strong {
+        font-size: 17px;
+    }
+
+    /* Toolbar */
+
+    .maintenance-toolbar {
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+
+    .maintenance-search {
+        max-width: none;
+        flex-basis: 100%;
+        box-sizing: border-box;
+    }
+
+    .maintenance-toolbar select {
+        flex: 1;
+        min-width: 0;
+    }
+
+    /* Modal form */
+
+    .maintenance-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .maintenance-modal {
+        padding: 17px;
+    }
+
+    /* Remove desktop table scrolling */
+
+    .maintenance-table-wrap {
+        width: 100%;
+        overflow: visible;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+    }
+
+    .maintenance-table {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 13px;
+    }
+
+    .maintenance-table thead {
+        display: none;
+    }
+
+    .maintenance-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        width: 100%;
+    }
+
+    /* Each table row becomes an individual card */
+
+    .maintenance-table tbody tr {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 15px;
+        background: var(--card-bg, #fff);
+        border: 1px solid var(--border-color, #e2e8f0);
+        border-radius: 13px;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    }
+
+    /* Each cell becomes a labelled field */
+
+    .maintenance-table tbody td {
+        display: grid;
+        grid-template-columns: minmax(95px, 34%) minmax(0, 1fr);
+        align-items: start;
+        gap: 12px;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 12px 0;
+        border-top: none;
+        border-bottom: 1px solid var(--border-color, #edf0f5);
+        vertical-align: top;
+        overflow-wrap: anywhere;
+    }
+
+    .maintenance-table tbody td:last-child {
+        border-bottom: none;
+    }
+
+    /* Mobile field labels
+       Assumed column order:
+       1. Asset
+       2. Issue / Description
+       3. Reported By
+       4. Priority
+       5. Status
+       6. Reported Date
+       7. Actions
+    */
+
+    .maintenance-table tbody td::before {
+        content: "";
+        display: block;
+        color: var(--text-secondary, #64748b);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        line-height: 1.5;
+    }
+
+    .maintenance-table tbody td:nth-child(1)::before {
+        content: "Asset";
+    }
+
+    .maintenance-table tbody td:nth-child(2)::before {
+        content: "Issue / Description";
+    }
+
+    .maintenance-table tbody td:nth-child(3)::before {
+        content: "Reported By";
+    }
+
+    .maintenance-table tbody td:nth-child(4)::before {
+        content: "Priority";
+    }
+
+    .maintenance-table tbody td:nth-child(5)::before {
+        content: "Status";
+    }
+
+    .maintenance-table tbody td:nth-child(6)::before {
+        content: "Reported Date";
+    }
+
+    .maintenance-table tbody td:nth-child(7)::before {
+        content: "Actions";
+    }
+
+    /* Text and descriptions */
+
+    .maintenance-table td strong {
+        font-size: 13px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .maintenance-table td small {
+        max-width: 100%;
+        font-size: 11px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    /* Status badges */
+
+    .maintenance-status {
+        justify-self: start;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.4;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    /* Action controls */
+
+    .maintenance-table td button,
+    .maintenance-table td .maintenance-link {
+        justify-self: start;
+        max-width: 100%;
+        white-space: normal;
+        text-align: left;
+    }
+
+    /* Empty state */
+
+    .maintenance-table tbody td.maintenance-empty {
+        display: block;
+        padding: 28px 12px !important;
+        text-align: center !important;
+        border: 1px solid var(--border-color, #e2e8f0);
+        border-radius: 13px;
+        background: var(--card-bg, #fff);
+    }
+
+    .maintenance-table tbody td.maintenance-empty::before {
+        content: none;
+    }
+
+    /* Modal actions */
+
+    .maintenance-modal-actions {
+        flex-wrap: wrap;
+    }
+}
+
+
+
+/* =========================================
+   EXTRA SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .maintenance-stat {
+        padding: 10px;
+    }
+
+    .maintenance-stat strong {
+        font-size: 16px;
+    }
+
+    .maintenance-table tbody tr {
+        padding: 6px 11px;
+    }
+
+    .maintenance-table tbody td {
+        grid-template-columns: 82px minmax(0, 1fr);
+        gap: 8px;
+        padding: 10px 0;
+        font-size: 12px;
+    }
+
+    .maintenance-table tbody td::before {
+        font-size: 9px;
+    }
+
+    .maintenance-modal {
+        padding: 14px;
+    }
+
+    .maintenance-modal-actions button {
+        flex: 1;
+    }
+}
+
+/* =========================================
+   TABLET LAYOUT
+========================================= */
+
+@media (min-width: 701px) and (max-width: 1100px) {
+
+    .maintenance-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .maintenance-table {
+        min-width: 900px;
+    }
+}
+
+.maintenance-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.maintenance-header-actions button {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .maintenance-header {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .maintenance-header-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}

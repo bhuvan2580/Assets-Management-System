@@ -1,0 +1,658 @@
+/* ============================================================
+   06-assignments.css
+   Assignment desktop table and mobile assignment cards.
+   ============================================================ */
+
+/* ============================================================
+   ASSIGNMENTS - MOBILE CARDS
+   ============================================================ */
+
+/* Hide mobile cards on desktop */
+.assignments-mobile-cards {
+    display: none;
+}
+
+
+/* Desktop table */
+.assignments-desktop-table {
+    display: block;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 650px) {
+
+    /* Hide desktop assignment table */
+    .assignments-desktop-table {
+        display: none;
+    }
+
+    /* Remove table scrolling behavior */
+    .assignments-table-container {
+        overflow: visible;
+        border: none;
+        background: transparent;
+    }
+
+    /* Show mobile cards */
+    .assignments-mobile-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        width: 100%;
+    }
+
+
+    /* =========================
+       CARD
+       ========================= */
+
+    .assignment-card {
+        width: 100%;
+        box-sizing: border-box;
+
+        background: #ffffff;
+
+        border: 1px solid #dfe4ea;
+        border-radius: 14px;
+
+        padding: 16px;
+
+        box-shadow:
+            0 2px 6px rgba(15, 23, 42, 0.04);
+
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            transform 0.2s ease;
+    }
+
+
+    .assignment-card:hover {
+        border-color: #cbd5e1;
+
+        box-shadow:
+            0 6px 18px rgba(15, 23, 42, 0.08);
+
+        transform: translateY(-1px);
+    }
+
+
+    /* =========================
+       CARD HEADER
+       ========================= */
+
+    .assignment-card-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        gap: 12px;
+
+        padding-bottom: 14px;
+
+        border-bottom: 1px solid #edf0f3;
+    }
+
+
+    .assignment-card-header>div {
+        min-width: 0;
+    }
+
+
+    .assignment-card-header strong {
+        display: block;
+
+        color: #111827;
+
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+
+    .assignment-card-header span:not(.status-badge) {
+        display: block;
+
+        margin-top: 4px;
+
+        color: #64748b;
+
+        font-size: 12px;
+    }
+
+
+    /* =========================
+       EMPLOYEE
+       ========================= */
+
+    .assignment-card-employee {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        gap: 16px;
+
+        padding: 14px 0;
+
+        border-bottom: 1px solid #edf0f3;
+    }
+
+
+    .assignment-card-employee>span {
+        flex-shrink: 0;
+
+        color: #94a3b8;
+
+        font-size: 11px;
+        font-weight: 600;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.04em;
+    }
+
+
+    .assignment-card-employee>div {
+        text-align: right;
+
+        min-width: 0;
+    }
+
+
+    .assignment-card-employee strong {
+        display: block;
+
+        color: #111827;
+
+        font-size: 14px;
+        font-weight: 600;
+
+        word-break: break-word;
+    }
+
+
+    .assignment-card-employee small {
+        display: block;
+
+        margin-top: 3px;
+
+        color: #94a3b8;
+
+        font-size: 12px;
+    }
+
+
+    /* =========================
+       DETAILS GRID
+       ========================= */
+
+    .assignment-card-details {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+
+        padding: 16px 0;
+    }
+
+
+    .assignment-card-details>div {
+        min-width: 0;
+    }
+
+
+    .assignment-card-details span {
+        display: block;
+
+        margin-bottom: 5px;
+
+        color: #94a3b8;
+
+        font-size: 10px;
+        font-weight: 600;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.05em;
+    }
+
+
+    .assignment-card-details strong {
+        display: block;
+
+        color: #334155;
+
+        font-size: 13px;
+        font-weight: 600;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+
+        white-space: nowrap;
+    }
+
+
+    /* =========================
+       RETURN BUTTON
+       ========================= */
+
+    .assignment-mobile-return {
+        width: 100%;
+
+        height: 42px;
+
+        margin-top: 2px;
+
+        justify-content: center;
+    }
+
+    .assignment-card .status-badge.status-lost {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+
+
+    /* =========================
+       STATUS
+       ========================= */
+
+    .assignment-card .status-badge {
+        flex-shrink: 0;
+
+        padding: 6px 10px;
+
+        font-size: 10px;
+    }
+
+}
+
+
+/* ============================================================
+   VERY SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 420px) {
+
+    .assignment-card {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+
+    .assignment-card-details {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+
+    .assignment-card-header strong {
+        font-size: 15px;
+    }
+
+
+    .assignment-card-employee {
+        flex-direction: column;
+
+        gap: 7px;
+    }
+
+
+    .assignment-card-employee>div {
+        text-align: left;
+    }
+
+}
+
+/* ============================================================
+   LOST STATUS BADGE
+   ============================================================ */
+
+.status-badge.status-lost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 16px;
+
+    background: #fee2e2;
+    color: #dc2626;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+/* ============================================================
+   UPCOMING ASSET RETURN REMINDER
+============================================================ */
+
+.return-reminder-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(3px);
+}
+
+.return-reminder-modal {
+    width: 100%;
+    max-width: 650px;
+    max-height: 85vh;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #ffffff;
+    border-radius: 14px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: returnReminderEnter 0.25s ease-out;
+}
+
+@keyframes returnReminderEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.return-reminder-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 22px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.return-reminder-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: #fff7ed;
+    color: #ea580c;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.return-reminder-title {
+    flex: 1;
+}
+
+.return-reminder-title h2 {
+    margin: 0;
+    color: #111827;
+    font-size: 19px;
+}
+
+.return-reminder-title p {
+    margin: 5px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.return-reminder-close {
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+.return-reminder-body {
+    padding: 20px 22px;
+    overflow-y: auto;
+}
+
+.return-reminder-description {
+    margin: 0 0 16px;
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.return-reminder-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.return-reminder-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px;
+
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 9px;
+}
+
+.return-reminder-asset {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.return-reminder-asset strong {
+    color: #111827;
+    font-size: 14px;
+}
+
+.return-reminder-asset span {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.return-reminder-date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.return-reminder-date span {
+    color: #6b7280;
+    font-size: 11px;
+}
+
+.return-reminder-date strong {
+    color: #c2410c;
+    font-size: 13px;
+}
+
+.return-reminder-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    padding: 17px 22px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.return-reminder-footer span {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.return-reminder-footer button {
+    padding: 10px 22px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #111827;
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.return-reminder-footer button:hover {
+    background: #374151;
+}
+
+@media (max-width: 600px) {
+    .return-reminder-overlay {
+        padding: 12px;
+    }
+
+    .return-reminder-modal {
+        max-height: 90vh;
+    }
+
+    .return-reminder-header {
+        padding: 17px;
+    }
+
+    .return-reminder-title h2 {
+        font-size: 16px;
+    }
+
+    .return-reminder-body {
+        padding: 16px;
+    }
+
+    .return-reminder-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .return-reminder-date {
+        align-items: flex-start;
+    }
+
+    .return-reminder-footer {
+        padding: 15px;
+    }
+}
+
+/* ============================================================
+   RETURNED ASSET DETAILS
+============================================================ */
+
+.returned-asset-link {
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    color: #2563eb;
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+    text-align: left;
+}
+
+.returned-asset-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.return-details-modal {
+    max-width: 720px;
+}
+
+.return-details-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.return-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.return-details-field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.return-details-field label {
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.return-details-field > div {
+    min-height: 44px;
+    box-sizing: border-box;
+    padding: 12px 14px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #dbe1e8;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #475569;
+    font-size: 14px;
+
+    overflow-wrap: anywhere;
+}
+
+.return-details-full {
+    width: 100%;
+}
+
+.return-details-field .return-details-text {
+    min-height: 85px;
+    align-items: flex-start;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 600px) {
+
+    .return-details-content {
+        padding: 18px;
+    }
+
+    .return-details-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+}

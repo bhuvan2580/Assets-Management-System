@@ -1,0 +1,607 @@
+
+.its-page {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--text-primary, #172033);
+}
+
+.its-header,
+.its-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.its-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+  font-size: 28px;
+}
+
+.its-header h1 svg {
+  color: #2563eb;
+}
+
+.its-header p,
+.its-card-head p,
+.its-modal > p {
+  color: #64748b;
+  margin: 5px 0;
+}
+
+.its-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  color: #64748b;
+}
+
+/* Buttons */
+.its-primary,
+.its-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 9px;
+  padding: 10px 14px;
+  font-weight: 650;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.its-primary {
+  background: #155eef;
+  color: #fff;
+}
+
+.its-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.its-secondary {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+/* Main card */
+.its-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.its-card-head {
+  padding: 20px 22px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.its-card-head h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 18px;
+}
+
+.its-card-head p {
+  font-size: 13px;
+}
+
+/* Table */
+.its-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.its-table-wrap table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 850px;
+}
+
+.its-table-wrap th {
+  text-align: left;
+  font-size: 12px;
+  color: #64748b;
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+.its-table-wrap th,
+.its-table-wrap td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #edf0f5;
+  vertical-align: top;
+}
+
+.its-table-wrap td {
+  font-size: 13px;
+}
+
+.its-table-wrap td strong,
+.its-table-wrap td small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.its-table-wrap td small {
+  margin-top: 5px;
+  color: #64748b;
+  max-width: 420px;
+  white-space: normal;
+  line-height: 1.45;
+}
+
+.its-review-note {
+  color: #9a3412 !important;
+}
+
+.its-empty {
+  text-align: center !important;
+  padding: 32px !important;
+  color: #64748b;
+}
+
+/* Priority and status badges */
+.its-priority,
+.its-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 750;
+  background: #f1f5f9;
+  color: #475569;
+  white-space: nowrap;
+}
+
+.its-priority.critical {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.its-priority.high {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.its-priority.medium {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.its-priority.low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* Row actions */
+.its-row-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.its-row-actions button {
+  padding: 7px 9px;
+  font-size: 12px;
+}
+
+.its-table-wrap select {
+  max-width: 160px;
+  border: 1px solid #dbe2ea;
+  border-radius: 7px;
+  padding: 7px;
+  background: #fff;
+  color: #334155;
+}
+
+/* Summary cards */
+.its-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.its-summary > div {
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  min-width: 0;
+}
+
+.its-summary small,
+.its-summary strong {
+  display: block;
+}
+
+.its-summary small {
+  color: #64748b;
+}
+
+.its-summary strong {
+  font-size: 28px;
+  margin-top: 7px;
+  overflow-wrap: anywhere;
+}
+
+/* Modal */
+.its-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.its-modal {
+  position: relative;
+  background: #fff;
+  width: min(560px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.24);
+  box-sizing: border-box;
+}
+
+.its-modal h2 {
+  margin: 0 30px 8px 0;
+  font-size: 22px;
+}
+
+.its-close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  border: 0;
+  background: #f1f5f9;
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.its-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 15px;
+  font-size: 13px;
+  font-weight: 650;
+  color: #334155;
+}
+
+.its-form input,
+.its-form select,
+.its-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  padding: 11px 12px;
+  font: inherit;
+  font-weight: 400;
+  color: #0f172a;
+  background: #fff;
+}
+
+.its-form textarea {
+  resize: vertical;
+}
+
+.its-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.its-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+/* Tablet layout */
+@media (max-width: 800px) {
+  .its-page {
+    padding: 14px;
+  }
+
+  .its-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .its-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .its-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .its-modal {
+    padding: 22px;
+  }
+}
+
+/* Mobile: display each ticket as a card */
+@media (max-width: 600px) {
+  .its-page {
+    padding: 12px;
+    gap: 16px;
+    min-width: 0;
+  }
+
+  .its-header h1 {
+    font-size: 23px;
+  }
+
+  .its-header p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .its-header > button {
+    width: 100%;
+  }
+
+  .its-card {
+    min-width: 0;
+    border-radius: 13px;
+    overflow: hidden;
+  }
+
+  .its-card-head {
+    padding: 16px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .its-card-head h2 {
+    font-size: 16px;
+  }
+
+  .its-card-head p {
+    line-height: 1.5;
+  }
+
+  .its-table-wrap {
+    overflow: visible;
+    padding: 12px;
+    background: #f8fafc;
+  }
+
+  .its-table-wrap table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .its-table-wrap thead {
+    display: none;
+  }
+
+  .its-table-wrap tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .its-table-wrap tbody tr {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 8px 14px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(15, 23, 42, 0.04);
+  }
+
+  .its-table-wrap tbody td {
+    display: grid;
+    grid-template-columns: minmax(95px, 34%) minmax(0, 1fr);
+    align-items: start;
+    gap: 10px;
+    width: 100%;
+    padding: 11px 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #edf0f5;
+    font-size: 13px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .its-table-wrap tbody td:last-child {
+    border-bottom: 0;
+  }
+
+  /* Labels for each table column */
+  .its-table-wrap tbody td:nth-child(1)::before {
+    content: "Ticket";
+  }
+
+  .its-table-wrap tbody td:nth-child(2)::before {
+    content: "Issue";
+  }
+
+  .its-table-wrap tbody td:nth-child(3)::before {
+    content: "Employee";
+  }
+
+  .its-table-wrap tbody td:nth-child(4)::before {
+    content: "Priority";
+  }
+
+  .its-table-wrap tbody td:nth-child(5)::before {
+    content: "Status";
+  }
+
+  .its-table-wrap tbody td:nth-child(6)::before {
+    content: "Details";
+  }
+
+  .its-table-wrap tbody td:nth-child(7)::before {
+    content: "Date";
+  }
+
+  .its-table-wrap tbody td:nth-child(8)::before {
+    content: "Actions";
+  }
+
+  .its-table-wrap tbody td::before {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.35px;
+  }
+
+  .its-table-wrap tbody td strong,
+  .its-table-wrap tbody td small {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .its-table-wrap tbody td small {
+    line-height: 1.45;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .its-table-wrap tbody td .its-priority,
+  .its-table-wrap tbody td .its-status {
+    justify-self: start;
+    align-self: start;
+  }
+
+  .its-table-wrap tbody td select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .its-row-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 7px;
+    width: 100%;
+  }
+
+  .its-row-actions button {
+    width: 100%;
+    min-height: 36px;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  /* Keep loading and empty-state rows readable */
+  .its-table-wrap tbody td.its-empty,
+  .its-table-wrap tbody td[colspan] {
+    display: block;
+    padding: 22px 8px !important;
+    text-align: center !important;
+    border-bottom: 0;
+  }
+
+  .its-table-wrap tbody td.its-empty::before,
+  .its-table-wrap tbody td[colspan]::before {
+    content: none;
+  }
+
+  .its-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .its-summary > div {
+    padding: 14px;
+    min-width: 0;
+  }
+
+  .its-summary small {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .its-summary strong {
+    font-size: 24px;
+  }
+
+  .its-overlay {
+    padding: 12px;
+    align-items: center;
+  }
+
+  .its-modal {
+    width: 100%;
+    max-height: 92vh;
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .its-modal h2 {
+    font-size: 19px;
+  }
+
+  .its-actions {
+    flex-direction: column-reverse;
+  }
+
+  .its-actions button {
+    width: 100%;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .its-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .its-table-wrap {
+    padding: 8px;
+  }
+
+  .its-table-wrap tbody tr {
+    padding: 6px 10px;
+  }
+
+  .its-table-wrap tbody td {
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .its-header h1 {
+    font-size: 21px;
+  }
+}
